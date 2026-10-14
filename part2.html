@@ -52,7 +52,49 @@
             </div>
         </div>
 
+        <div class="card shadow-sm form-card">
+            <div class="card-body">
+                <h2 class="mb-3">Task 3</h2>
+                <form id="task3form" novalidate>
+                    <div class="col-12 mb-3">
+                        <label for="t3name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="t3name" placeholder="Input your name" required>
+                        <div class="invalid-feedback">Name is required</div>
+                        <div class="valid-feedback">Looks good</div>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label for="t3email" class="form-label">Email</label>
+                        <input type="text" class="form-control" id="t3email" placeholder="Input your email" required>
+                        <div class="invalid-feedback">Email is required</div>
+                        <div class="valid-feedback">Looks good</div>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label for="t3username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="t3username" placeholder="4-12 symbols" required minlength="4" maxlength="12" pattern="^[a-z0-9_]+">
+                        <div class="invalid-feedback">4-12 symbols. lowercase, numbers, underscore</div>
+                        <div class="valid-feedback">Looks good</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Submit</button>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const forms = document.querySelectorAll('form:not([data-no-validation])');
+    forms.forEach(form => {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (form.checkValidity()) {
+                form.classList.add('was-validated');
+                form.reset();
+            } else {
+                form.classList.add('was-validated');
+            }
+        });
+    });
+</script>
 </body>
 </html>
