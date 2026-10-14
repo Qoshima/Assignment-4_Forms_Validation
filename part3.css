@@ -1,0 +1,14 @@
+.form-card {
+    width: 100%;
+    max-width: 600px;
+    border:none;
+}
+.btn-primary {
+    background-color: #c0d6e4;
+    border-color: #c0d6e4;
+}
+
+.btn-primary:hover {
+    background-color: #a8c2d4;
+    border-color: #a8c2d4;
+}
