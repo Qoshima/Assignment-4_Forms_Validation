@@ -16,7 +16,7 @@
 }
 .forms-wrapper .form-container {
     flex: 1;
-    max-width: none;  /* отменяем max-width: 450px из вашего CSS */
+    max-width: none;
 }
 .form-group {
     margin-bottom: 15px;
