@@ -130,26 +130,35 @@
 <script>
     const form = document.getElementById("registerForm");
     const password = document.getElementById("password");
-    const confirm = document.getElementById("confirmPassword");
+    const confirmInput = document.getElementById("confirmPassword");
     const successMsg = document.getElementById("regSuccess");
 
     form.addEventListener("submit", function (event) {
         event.preventDefault();
         event.stopPropagation();
 
-        if (password.value !== confirm.value) {
-            confirm.setCustomValidity("Passwords don't match");
+        if (password.value !== confirmInput.value) {
+            confirmInput.setCustomValidity("Passwords don't match");
         } else {
-            confirm.setCustomValidity("");
+            confirmInput.setCustomValidity("");
         }
         if (form.checkValidity()) {
-            form.classList.add("was-validated");
             form.reset();
+            form.classList.remove("was-validated");
             successMsg.classList.remove("d-none");
             setTimeout(() => successMsg.classList.add("d-none"), 4000);
         } else {
             form.classList.add("was-validated");
         }
+    });
+    [password, confirmInput].forEach(function (input) {
+        input.addEventListener("input", function () {
+            if (password.value !== confirmInput.value) {
+                confirmInput.setCustomValidity("Passwords don't match");
+            } else {
+                confirmInput.setCustomValidity("");
+            }
+        });
     });
 </script>
 </body>
